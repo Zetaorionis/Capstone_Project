@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Rating Dataset- Analysis and Prediction Project!</title>
+      <!-- Our CSS -->
+<!--   <link rel="stylesheet" type="text/css" href="../static/css/style.css"> -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+    <h1>We Love Wine!</h1>
+    <img src="{{ url_for('static', filename='img/word_cloud.png') }}" alt="Wine Word Cloud" width="800" height="400">
+    <h2>Where do you want to go?:</h2>
+    <select id="endpointSelect">
+        <option value="endpoint1">Tableau Dashboard</option>
+        <option value="endpoint2">Make a Prediction</option>
+        <option value="endpoint3">GitHub Repo</option>
+    </select>
+    <button onclick="redirectToEndpoint()">Go</button>
+
+    <div id = "container">
+        <!-- The div that holds our menu/sidebar -->
+        <div id = "sidebar">
+          <h2>We Love Wine!</h2><hr>
+          <br>
+          <h3>Where do you want to go?:</h3>
+          <p><a id = 'current-link' href = '/'>Home</a></p>
+          <p><a  href = '/endpoint1'>Tableau Dashboard</a></p>
+          <p><a href = '/endpoint2'>Make a Prediction</a></p>
+          <p><a href = '/endpoint3'>Git Hub Repo</a></p>
+        </div>
+
+    <script>
+        function redirectToEndpoint() {
+            var selectElement = document.getElementById("endpointSelect");
+            var selectedValue = selectElement.value;
+            window.location.href = "/" + selectedValue;
+        }
+    </script>
+</body>
+
+<!-- HTML !-->
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Model Display</title>
+      <!-- Our CSS -->
+<!--   <link rel="stylesheet" type="text/css" href="../static/css/style.css"> -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+    <h1>Landing Page for our Model: COMING SOON!</h1>
+    
+    <h2>Where do you want to go?:</h2>
+    <select id="endpointSelect">
+        <option value="endpoint1">Tableau Dashboard</option>
+        <option value="endpoint2">Make a Prediction</option>
+        <option value="endpoint3">GitHub Repo</option>
+    </select>
+    <button onclick="redirectToEndpoint()">Go</button>
+
+
+    <script>
+        function redirectToEndpoint() {
+            var selectElement = document.getElementById("endpointSelect");
+            var selectedValue = selectElement.value;
+            window.location.href = "/" + selectedValue;
+        }
+    </script>
+</body>
+
+<!-- HTML !-->
+
+</html>

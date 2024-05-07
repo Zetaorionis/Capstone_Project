@@ -1,0 +1,53 @@
+html, 
+body{
+  height: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+/*Main Body container*/
+#container{
+  height: 100%;
+  display:flex;
+}
+/*sidebar menu*/
+#sidebar{
+  flex:1;
+  height:100%;
+  width:200px;  /*fixed width*/
+  float: left;
+  background-color: #777;
+  color:aliceblue;
+
+}
+
+#sidebar p {
+  display:block;
+  margin-top: 10px;
+  margin-bottom:50px;
+  text-align:center;
+  font-size:1.3em;
+}
+/*change colors based on link status (active, visited, hover)*/
+#sidebar a:active {
+  color: rgb(0, 170, 255); 
+}
+
+#sidebar a:visited{
+  color: white;     
+}
+
+#sidebar a:hover {
+  color: #00FF00;
+}
+
+#sidebar h3, #sidebar h2{
+  margin: 10 10px;
+  text-align:center;
+}
+
+#current{
+  color: black
+}
