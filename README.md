@@ -4,11 +4,11 @@
 The objective of this project was to use machine learning to explore wine data and gain insights into the factors that influence wine prices, ratings, and regions. By applying advanced algorithms, we identified patterns, correlations, and developed predictive models to better understand the wine industry. Our work culminated in a user-friendly dashboard that guides consumers by providing information on price, rating, variety, country, and province, helping them make more informed wine choices.
 
 ## Key Questions 
-What are the key factors that significantly impact wine pricing?
-Is it possible to predict a wine's rating using geographic data and other attributes?
-How do wine ratings vary across different regions?
-Are there recognizable trends in wine pricing based on location?
-Can we detect unusual pricing patterns or outliers that might suggest issues in the wine market?
+1. What are the key factors that significantly impact wine pricing?
+2. Is it possible to predict a wine's rating using geographic data and other attributes?
+3. How do wine ratings vary across different regions?
+4. Are there recognizable trends in wine pricing based on location?
+5. Can we detect unusual pricing patterns or outliers that might suggest issues in the wine market?
 
 ## Technologies Used
 
