@@ -5,7 +5,7 @@ app = Flask(__name__, static_url_path='',
             template_folder='templates')
 # app.config['TEMPLATES_AUTO_RELOAD'] = True  # Optional: Auto-reload templates during development
  
-dashboard = 'https://public.tableau.com/views/WineAnalysis_17149494454560/USProvincesMapperRatingCategory?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link'
+dashboard = 'https://public.tableau.com/app/profile/viktor.kabelkov/viz/WineAnalysis_17149494454560/WineInfoDaashboard'
 
 
 # Root endpoint with links to api1, api2, and api3
