@@ -34,6 +34,9 @@ html, body {
 .first-child {
   flex-grow: 1; /* Allow the first child to grow and fill remaining space */
 }
+.first-child {
+  align-self: center; /* Align the first child image vertically center */
+}
 
 .second-child,
 .third-child {
