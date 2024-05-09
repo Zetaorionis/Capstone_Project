@@ -49,7 +49,7 @@ html, body {
 .images-container img:first-child {
   position: absolute;
   top: 0;
-  left: 220px;
+  left: 240px;
 }
 #sidebar {
   flex: 0 0 150px;
