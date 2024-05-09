@@ -11,32 +11,9 @@
 </head>
 
 <body>
-    <h1>Landing Page for our Model: COMING SOON!</h1>
-<div>
-<form action="/result" method="POST">
-	<label for="number">Number</label>
-	<input type="text" id="number" name="number">
-	<br>
-	<label for="w_class">Working Class</label>
-	<select id="w_class" name="w_class">
-	<option value="0">Federal-gov</option>
-	<option value="1">Local-gov</option>
-	<option value="2">Never-worked</option>
-	<option value="3">Private</option>
-	<option value="4">Self-emp-inc</option>
-	<option value="5">Self-emp-not-inc</option>
-	<option value="6">State-gov</option>
-	<option value="7">Without-pay</option>
-	</select>
-		<br>
-	<input type="submit" value="Submit">
-</form>
-</div>
-</body>
-</html>
-
-
-
+    <h1>The Model Predicts:</h1><hr>
+    <h2> {{prediction}}</h2>
+    
     <h2>Where do you want to go?:</h2>
     <select id="endpointSelect">
         <option value="endpoint1">Tableau Dashboard</option>
