@@ -5,7 +5,7 @@ The objective of this project was to use machine learning to explore wine data a
 
 ![image](https://github.com/Zetaorionis/Capstone_Project/assets/143036776/5170fd6b-a8fc-45c1-9a98-0c9f76f2a0b1)
 
-## Key Questions 
+## What We Wanted to Explore
 1. What are the key factors that significantly impact wine pricing?
 2. Is it possible to predict a wine's rating using geographic data and other attributes?
 3. How do wine ratings vary across different regions?
@@ -17,17 +17,22 @@ The objective of this project was to use machine learning to explore wine data a
 ## Technologies Used
 
 ### Data Cleaning and Storage
-To prepare our dataset for analysis, we utilized Python and pandas to perform several data cleaning and transformation tasks. The data was stored and extracted from MongoDB, enabling us to manage large datasets effectively. We applied regex to extract the year from textual data, isolating the vintage of each wine. Additionally, we created a dictionary to map wine varieties to specific categories, providing a structured approach to classify our data. Using pandas, we added a column to categorize wines based on their point-based ratings, allowing us to group them by their rating country. During the cleaning process, we dropped redundant or irrelevant columns, such as those containing incomplete data or duplications, to streamline the dataset and minimize noise. This ensured that our final dataset was focused on relevant features, facilitating a more efficient and effective analysis.was focused on relevant features, facilitating a more efficient and effective analysis.
+* **Data Extraction:** We used MongoDB to store and extract data, allowing for efficient handling of large datasets.
+* **Data Cleaning and Transformation:** Using Python and pandas, we performed various cleaning tasks, including dropping redundant or incomplete columns to minimize noise.
+* **Year Extraction:** We applied regex to extract the year from textual data, helping isolate the vintage of each wine.
+* **Variety Classification:** A dictionary was created to map wine varieties to their specific types.
+* **Rating Categorization:** We added a column to categorize wines based on their point-based ratings.
+* **Final Outcome:** The resulting dataset contained only relevant features, which facilitated a more efficient and effective analysis.
 
 ### Machine Learning
 We used SciKitLearn's Random Forest model to implement our machine learning solutions. This ensemble-based algorithm provided robust predictions and allowed us to harness the collective strength of multiple decision trees, yielding a more accurate and reliable model.
 
 
 ### Dashboard
-We used Tableau to conduct data analysis and present our findings in a visually compelling story. Through this platform, we created a dashboard that illustrates key insights into wine data, allowing users to explore and interact with the results. The dashboard provides a dynamic map showcasing different U.S. provinces, with wine ratings categorized to reveal trends and patterns. You can view and interact with the dashboard to explore the data and gain a deeper understanding of our analysis at the following link: Tableau Dashboard.
+We used Tableau to conduct data analysis and present our findings in a visually compelling story. Through this platform, we created a dashboard that illustrates key insights into wine data, allowing users to explore and interact with the results. The dashboard provides a dynamic map showcasing different U.S. provinces, with wine ratings categorized to reveal trends and patterns. You can view and interact with the dashboard to explore the data and gain a deeper understanding of our analysis here: [Wine Analysis](https://public.tableau.com/app/profile/viktor.kabelkov/viz/WineAnalysis_17149494454560/USProvincesMapperRatingCategory)
 
 ### Website
- We created a website to serve as an interface for users to interact with our model. To facilitate this, we used Flask, a lightweight web framework, to build an API that allows for seamless data retrieval and processing. This API enables dynamic data interaction, allowing users to request information and receive real-time responses, thereby enhancing the functionality and user experience of the website
+ We created a website to serve as an interface for users to interact with our model. To facilitate this, we used Flask, a lightweight web framework, to build an API that allows for seamless data retrieval and processing. This API enables dynamic data interaction, allowing users to request information and receive real-time responses, thereby enhancing the functionality and user experience of the website. 
 
 ![image](https://github.com/Zetaorionis/Capstone_Project/assets/143036776/3579ae9b-3dc8-4c6e-bdb4-1b895a1b41f6)
 
@@ -39,11 +44,12 @@ The dataset used for this project was obtained from Kaggle, with 130,000 rows an
 ## Machine Learning Model
 
 ### Main question/prediction
-The primary focus of our project was to predict the rating of a wine based on various factors such as price, wine type, and region. To build a model capable of making accurate predictions, we used a random forest classifier, a robust machine learning algorithm ideal for both categorical and numerical data. Our preprocessing involved a thorough data cleaning process, utilizing encoding and dummy variables to transform categorical data into a numerical format suitable for modeling. The key features for our model included price, points, rating category, wine type, country, and variety. The output of our model provides an estimated rating for a given wine based on these features, allowing us to better understand the underlying factors that contribute to a wine's quality and appeal.
+Our project aimed to predict wine ratings based on key factors like price, wine type, and region. We built a robust model using a random forest classifier, suitable for both categorical and numerical data. Preprocessing involved data cleaning, with encoding and dummy variables to convert categorical data into a numerical format. Key features in our model included price, points, rating category, wine type, country, and variety. The model's output offers an estimated rating for a given wine, shedding light on the factors influencing wine quality and appeal.
 
 ### How does the model work?
+
 ### Model accuracy and optimization process
-The random forest classifier, our chosen machine learning model, works by building multiple decision trees and aggregating their results to make predictions. This ensemble approach reduces overfitting and increases model robustness. In our project, we used this model to predict the rating of a wine based on several key features. To optimize the model's performance, we tuned hyperparameters and validated our approach with cross-validation techniques. The accuracy of the model, which measures its prediction success rate, ranged between 75% and 85%, indicating that the model has a reliable level of precision and generalization, but could benefit from further tuning and additional data to improve its performance.
+The random forest classifier, our chosen machine learning model, works by building multiple decision trees and aggregating their results to make predictions. This ensemble approach reduces overfitting and increases model robustness. In our project, we used this model to predict the rating of a wine based on several key features. To optimize the model's performance, we tuned hyperparameters and validated our approach with cross-validation techniques. The accuracy of the model, which measures its prediction success rate, ranged between 75% and 80%, indicating that the model has a reliable level of precision and generalization, but could benefit from further tuning and additional data to improve its performance.
 
 ![image](https://github.com/Zetaorionis/Capstone_Project/assets/143036776/87d0e726-6495-4b95-a807-b2934af12325)
 
@@ -52,8 +58,9 @@ The random forest classifier, our chosen machine learning model, works by buildi
 In the future, this model could be enhanced by incorporating additional data sources, such as customer reviews or expert ratings, to improve its accuracy. Improvements could also come from exploring different algorithms, such as gradient boosting or neural networks, which may offer greater predictive power. Additionally, expanding the dataset to include more wine regions and vintages could provide broader insights and allow for a more comprehensive analysis. Further development could focus on creating a recommendation system to assist consumers in selecting wines based on personalized preferences and historical data.
 
 ## References
-* Data Source: Kaggle
+* Data Source: [Kaggle](https://www.kaggle.com/datasets/zynicide/wine-reviews)
 * ChatGPT from OpenAI
+* Photos from [Unsplash](https://unsplash.com/)
 * Additional references for code and visualization techniques were cited within the project files as needed.
 
 ## Github Repository
