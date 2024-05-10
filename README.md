@@ -58,8 +58,9 @@ The random forest classifier, our chosen machine learning model, works by buildi
 In the future, this model could be enhanced by incorporating additional data sources, such as customer reviews or expert ratings, to improve its accuracy. Improvements could also come from exploring different algorithms, such as gradient boosting or neural networks, which may offer greater predictive power. Additionally, expanding the dataset to include more wine regions and vintages could provide broader insights and allow for a more comprehensive analysis. Further development could focus on creating a recommendation system to assist consumers in selecting wines based on personalized preferences and historical data.
 
 ## References
-* Data Source: Kaggle
+* Data Source: [Kaggle](https://www.kaggle.com/datasets/zynicide/wine-reviews)
 * ChatGPT from OpenAI
+* Photos from [Unsplash](https://unsplash.com/)
 * Additional references for code and visualization techniques were cited within the project files as needed.
 
 ## Github Repository
