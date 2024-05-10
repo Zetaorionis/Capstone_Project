@@ -11,26 +11,45 @@
 </head>
 
 <body>
-    <h1>The Model Predicts:</h1><hr>
-    <h2> {{prediction}}</h2>
-    
-    <h2>Where do you want to go?:</h2>
-    <select id="endpointSelect">
-        <option value="endpoint1">Tableau Dashboard</option>
-        <option value="endpoint2">Make a Prediction</option>
-        <option value="endpoint3">GitHub Repo</option>
-    </select>
-    <button onclick="redirectToEndpoint()">Go</button>
+    <div class="container">
+        <div id="sidebar">
+            <h2>We Love Wine!</h2>
+            <hr>
+            <br>
+            <h3>Where do you want to go?:</h3>
+            <p><a id='current-link' href='/'>Home</a></p>
+            <p><a href='https://public.tableau.com/app/profile/viktor.kabelkov/viz/WineAnalysis_17149494454560/WineInfoDaashboard'>Tableau Dashboard</a></p>
+            <p><a href='/endpoint2'>Make a Prediction</a></p>
+            <p><a href='https://github.com/Zetaorionis/Capstone_Project.git'>Git Hub Repo</a></p>
+        </div>
+
+        <div class = "content">
+            <div>
+                <h1>The Model Predicts:</h1><hr>
+                <h2> {{prediction}}</h2>
+                
+                <hr> 
+                <div class="navigation-container">
+                    <h2>Where do you want to go?:</h2>
+                    <select id="endpointSelect">
+                        <option value="https://public.tableau.com/app/profile/viktor.kabelkov/viz/WineAnalysis_17149494454560/WineInfoDaashboard">Tableau Dashboard</option>
+                        <option value="endpoint2">Make a Prediction</option>
+                        <option value="https://github.com/Zetaorionis/Capstone_Project.git">GitHub Repo</option>
+                    </select>
+                    <button onclick="redirectToEndpoint()">Go</button>
+                </div>
+            </div>
+        </div>
 
 
-    <script>
-        function redirectToEndpoint() {
-            var selectElement = document.getElementById("endpointSelect");
-            var selectedValue = selectElement.value;
-            window.location.href = "/" + selectedValue;
-        }
-    </script>
-</body>
+                <script>
+                    function redirectToEndpoint() {
+                        var selectElement = document.getElementById("endpointSelect");
+                        var selectedValue = selectElement.value;
+                        window.location.href = "/" + selectedValue;
+                    }
+                </script>
+            </body>
 
 <!-- HTML !-->
 

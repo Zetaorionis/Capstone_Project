@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wine Rating Dataset- Analysis and Prediction Project!</title>
-    <!-- Our CSS -->
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css"> 
+      <!-- Our CSS -->
+<!--   <link rel="stylesheet" type="text/css" href="../static/css/style.css"> -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <div class="container">
@@ -22,10 +23,10 @@
         <div class="content">
             <div class="images-container">
                 <div class="image-container">
-                    <img src="../static/img/wine.png" alt="Third Image" width="1200" height="150">
-                    <img src="../static/img/word_cloud.png" alt="Wine Word Cloud" width="600" height="470">
-                    <video width="600" height="600" controls>
-                        <source src="../static/img/mixkit-leaning-glass-on-a-black-background-filled-with-red-wine-22736-medium.mp4" type="video/mp4">
+                    <img src="{{ url_for('static', filename='img/wine.png') }}" alt="Wine Banner" width="1305" height="100">
+                    <img src="{{ url_for('static', filename='img/word_cloud.png') }}" alt="Wine Word Cloud" width="700" height="400">
+                    <video width="600" height="400" controls autoplay>
+                        <source src="{{ url_for('static', filename='img/wine_vid.mp4 ') }}" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>

@@ -31,15 +31,7 @@ html, body {
 .navigation-container button {
     margin-top: 10px;
 }
-.first-child {
-  flex-grow: 1; /* Allow the first child to grow and fill remaining space */
-}
 
-.second-child,
-.third-child {
-  flex: 0 0 auto; /* Prevent the second and third child from growing */
-  width: auto; /* Allow the width of the second and third child to adjust dynamically */
-}
 .image-container img:nth-child(2) {
   margin-top: 130px; 
 }

@@ -6,45 +6,58 @@
     <title>Interactive Model Display</title>
       <!-- Our CSS -->
 <!--   <link rel="stylesheet" type="text/css" href="../static/css/style.css"> -->
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
 </head>
 
 <body>
-    <h1>Landing Page for our Model: COMING SOON!</h1>
-<div>
-<form action="/result3" method="POST">
-	<label for="number">Select a number from 0-100 <br> to select a wine from our test dataset: </label>
-	<input type="text" id="number" name="number">
-<!-- 	<br>
-	<label for="w_class">Working Class</label>
-	<select id="w_class" name="w_class">
-	<option value="0">Federal-gov</option>
-	<option value="1">Local-gov</option>
-	<option value="2">Never-worked</option>
-	<option value="3">Private</option>
-	<option value="4">Self-emp-inc</option>
-	<option value="5">Self-emp-not-inc</option>
-	<option value="6">State-gov</option>
-	<option value="7">Without-pay</option>
-	</select> -->
-		<br>
-	<input type="submit" value="Submit">
-</form>
-</div>
-</body>
-</html>
+    <div class="container">
+        <div id="sidebar">
+            <h2>We Love Wine!</h2>
+            <hr>
+            <br>
+            <h3>Where do you want to go?:</h3>
+            <p><a id='current-link' href='/'>Home</a></p>
+            <p><a href='https://public.tableau.com/app/profile/viktor.kabelkov/viz/WineAnalysis_17149494454560/WineInfoDaashboard'>Tableau Dashboard</a></p>
+            <p><a href='/endpoint2'>Make a Prediction</a></p>
+            <p><a href='https://github.com/Zetaorionis/Capstone_Project.git'>Git Hub Repo</a></p>
+        </div>
 
+        <div class = "content">
+            <div>
+                <h2> Let's Make a Prediction</h2>
+                <form action="/result3" method="POST">
+                    <label for="number">Select a number from 0-100 <br> to select a wine from our test dataset: </label>
+                    <input type="text" id="number" name="number">
+                <!-- 	<br>
+                    <label for="w_class">Working Class</label>
+                    <select id="w_class" name="w_class">
+                    <option value="0">Federal-gov</option>
+                    <option value="1">Local-gov</option>
+                    <option value="2">Never-worked</option>
+                    <option value="3">Private</option>
+                    <option value="4">Self-emp-inc</option>
+                    <option value="5">Self-emp-not-inc</option>
+                    <option value="6">State-gov</option>
+                    <option value="7">Without-pay</option>
+                    </select> -->
+                        <br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
 
-
-    <h2>Where do you want to go?:</h2>
-    <select id="endpointSelect">
-        <option value="endpoint1">Tableau Dashboard</option>
-        <option value="endpoint2">Make a Prediction</option>
-        <option value="endpoint3">GitHub Repo</option>
-    </select>
-    <button onclick="redirectToEndpoint()">Go</button>
-
+            <hr> 
+            <div class="navigation-container">
+                <h2>Where do you want to go?:</h2>
+                <select id="endpointSelect">
+                    <option value="https://public.tableau.com/app/profile/viktor.kabelkov/viz/WineAnalysis_17149494454560/WineInfoDaashboard">Tableau Dashboard</option>
+                    <option value="endpoint2">Make a Prediction</option>
+                    <option value="https://github.com/Zetaorionis/Capstone_Project.git">GitHub Repo</option>
+                </select>
+                <button onclick="redirectToEndpoint()">Go</button>
+            </div>
+        </div>
+    </div>
 
     <script>
         function redirectToEndpoint() {
