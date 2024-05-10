@@ -71,13 +71,23 @@ def result3():
         to_predict_list = request.form.to_dict()
         wine = int(to_predict_list['number'])
         predict_row = np.expand_dims(scaled_df.iloc[wine,0:68], axis=0)
-        result = ValuePredictor(predict_row)   
+        predict_index = scaled_df.iloc[wine,-1]
+        wine_data = wine_df.iloc[predict_index,:]
+        result = ValuePredictor(predict_row) 
+
         if result < .5:
             prediction = f"We predict this wine is less than 90 points (Probability: {round(float(result),2)})"
         else: 
             prediction = f"This wine is 90 points or more! (Probability: {round(float(result),2)})"
 
-    return render_template('result.html', prediction = prediction)
+        output ={
+            'prediction': prediction, 
+            'wine' : wine_data['title'],
+            'country' : f"{wine_data['region']}, {wine_data['country']}",
+            'rating': wine_data['points'] 
+            }
+
+    return render_template('result.html', result = output)
 
 # Serve static files like CSS, JS, and images
 # @app.route('/static/<path:filename>')
