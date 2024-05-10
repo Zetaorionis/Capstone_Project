@@ -5,7 +5,7 @@ The objective of this project was to use machine learning to explore wine data a
 
 ![image](https://github.com/Zetaorionis/Capstone_Project/assets/143036776/5170fd6b-a8fc-45c1-9a98-0c9f76f2a0b1)
 
-## Key Questions 
+## What We Want to Explore
 1. What are the key factors that significantly impact wine pricing?
 2. Is it possible to predict a wine's rating using geographic data and other attributes?
 3. How do wine ratings vary across different regions?
