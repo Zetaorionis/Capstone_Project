@@ -5,6 +5,7 @@ html, body {
   background-color: #f0f0f0; 
   background-image: url('../img/Wine_background.png'); 
   background-size: cover; 
+  height: 100%;
 }
 
 .images-container {
@@ -56,6 +57,7 @@ html, body {
 .container {
   display: flex;
   width: 80%;
+  height:100%;
 }
 #sidebar p {
   display: block;

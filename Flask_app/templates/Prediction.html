@@ -18,15 +18,15 @@
             <br>
             <h3>Where do you want to go?:</h3>
             <p><a id='current-link' href='/'>Home</a></p>
-            <p><a href='https://public.tableau.com/app/profile/viktor.kabelkov/viz/WineAnalysis_17149494454560/WineInfoDaashboard'>Tableau Dashboard</a></p>
-            <p><a href='/endpoint2'>Make a Prediction</a></p>
-            <p><a href='https://github.com/Zetaorionis/Capstone_Project.git'>Git Hub Repo</a></p>
+            <p><a href='/dashboard'>Tableau Dashboard</a></p>
+            <p><a href='/makeprediction'>Make a Prediction</a></p>
+            <p><a href='/repo'>Git Hub Repo</a></p>
         </div>
 
         <div class = "content">
             <div>
                 <h2> Let's Make a Prediction</h2>
-                <form action="/result3" method="POST">
+                <form action="/result" method="POST">
                     <label for="number">Select a number from 0-100 <br> to select a wine from our test dataset: </label>
                     <input type="text" id="number" name="number">
                 <!-- 	<br>
@@ -50,9 +50,9 @@
             <div class="navigation-container">
                 <h2>Where do you want to go?:</h2>
                 <select id="endpointSelect">
-                    <option value="https://public.tableau.com/app/profile/viktor.kabelkov/viz/WineAnalysis_17149494454560/WineInfoDaashboard">Tableau Dashboard</option>
-                    <option value="endpoint2">Make a Prediction</option>
-                    <option value="https://github.com/Zetaorionis/Capstone_Project.git">GitHub Repo</option>
+                    <option value="dashboard">Tableau Dashboard</option>
+                    <option value="makeprediction">Make a Prediction</option>
+                    <option value="repo">GitHub Repo</option>
                 </select>
                 <button onclick="redirectToEndpoint()">Go</button>
             </div>
