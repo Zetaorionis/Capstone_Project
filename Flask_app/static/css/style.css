@@ -71,7 +71,7 @@ html, body {
   color: rgb(0, 170, 255);
 }
 
-#sidebar a, a:visited {
+#sidebar a, #sidebar a:visited {
   color: #F8F8FF;
 }
 

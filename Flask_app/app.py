@@ -12,9 +12,10 @@ app = Flask(__name__, static_url_path='',
 # Prediction Function 
 def predict_rating(predict_row):
     loaded_model = tf.keras.models.load_model('static/resources/model.h5')  # Loading trained model
-    result = loaded_model.predict(predict_row)  # Making a single prediction based on passed data-row and returning probablity result 
+    result = loaded_model.predict(predict_row)  # Making a single prediction based on passed data-row. Returns probablity result (0-1)
     return result[0][0] 
 
+# Prediction accuracy function : compares passed values of prediction and target to return accuracy string (right or wrong)
 def pred_accuracy(prediction, target):
     if prediction == target:
         return "The model's prediction was correct!"
@@ -43,7 +44,7 @@ def repo():
     return redirect('https://github.com/Zetaorionis/Capstone_Project/tree/main')
 
 # API endpoint for displaying prediction results. Function loads model and makes prediciton
-@app.route('/result', methods = ['POST'])
+@app.route('/result', methods = ['POST'])  # redered via form submission on makeprediction route
 def result3():
     # Loading wine data (for metadata display) & scaled data (for model prediction)
     wine_df = pd.read_csv('static/resources/clean_wine_data_final.csv')
@@ -51,34 +52,40 @@ def result3():
 
     if request.method == 'POST':
         to_predict_list = request.form.to_dict()    # turns form response into a dictionary
-        wine = int(to_predict_list['number'])   # extracts value entered and sets as integer
         
-        # Extracts index from scaled_df and pulls metadata for selected wine based on index
-        predict_index = scaled_df.iloc[wine,-2]
-        wine_data = wine_df.iloc[predict_index,:]
+        try: 
+            wine = int(to_predict_list['row'])   # extracts value entered and sets as integer
+            
+            # Extracts index from scaled_df and pulls metadata for selected wine based on index
+            predict_index = scaled_df.iloc[wine,-2]
+            wine_data = wine_df.iloc[predict_index,:]
+            
+            # extracts row based on integer and excludes index and target (last 2 columns) as numpy array and 
+            #converts to float32 for tensor model     
+            predict_row = np.expand_dims(scaled_df.iloc[wine,:-2], axis=0)  
+            predict_row = np.asarray(predict_row).astype(np.float32)
         
-        # extracts row based on integer and excludes index and target (last 2 columns) as numpy array and 
-        #converts to float32 for tensor model     
-        predict_row = np.expand_dims(scaled_df.iloc[wine,:-2], axis=0)  
-        predict_row = np.asarray(predict_row).astype(np.float32)
-       
-        # Calls predict_rating function and passes numpy array of scaled data
-        prediction = predict_rating(predict_row)
+            # Calls predict_rating function and passes numpy array of scaled data
+            prediction = predict_rating(predict_row)
 
-        # Sets response text based on prediction probabilty (less than .5 = False/< 90) and adds probability value
-        if prediction < .5:
-            prediction_text = f"We predict this wine is less than 90 points (Probability: {round(float(prediction),2)})"
-            accuracy = pred_accuracy(False,scaled_df.iloc[wine,-1])
-        else: 
-            prediction_text = f"This wine is 90 points or higher! (Probability: {round(float(prediction),2)})"
-            accuracy = pred_accuracy(True,scaled_df.iloc[wine,-1])
+            # Sets response text based on prediction probabilty (less than .5 = False/< 90) and adds probability value
+            if prediction < .5:
+                prediction_text = f"We predict this wine is less than 90 points (Probability: {round(float(prediction),2)})"
+                accuracy = pred_accuracy(False,scaled_df.iloc[wine,-1])
+            else: 
+                prediction_text = f"This wine is 90 points or higher! (Probability: {round(float(prediction),2)})"
+                accuracy = pred_accuracy(True,scaled_df.iloc[wine,-1])
 
-        # Create content dictionary based on wine metadata and add a prediction key with prediction text
-        result = wine_data.to_dict()
-        result['prediction'] = prediction_text
-        result['accuracy'] = accuracy
+            # Create content dictionary based on wine metadata and add a prediction key with prediction text
+            result = wine_data.to_dict()
+            result['prediction'] = prediction_text
+            result['accuracy'] = accuracy
 
-    return render_template('result.html', result = result)  # render results template and pass content dictionary for display 
+            return render_template('result.html', result = result)  # render results template and pass content dictionary for display
+
+        except ValueError as e: 
+            message = f"You did not enter a number. (Error Message: {e.args[0]})."
+            return render_template('error.html', message = message)
 
 # API endpoint to Trained Model Landing Page
 @app.route('/makeprediction2')

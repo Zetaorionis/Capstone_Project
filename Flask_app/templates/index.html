@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wine Rating Dataset- Analysis and Prediction Project!</title>
-      <!-- Our CSS -->
+    <title>Vino & Machine Learning: The Perfect Pairing!</title>
+      <!-- CSS - Use first link if not using flask, use second link if using flask  -->
 <!--   <link rel="stylesheet" type="text/css" href="../static/css/style.css"> -->
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <div class="container">
+        <!-- Create menu bar for navigation-->
         <div id="sidebar">
-            <h2>We Love Wine!</h2>
+            <h2>Vino & Machine Learning: The Perfect Pairing</h2>
             <hr>
             <br>
             <h3>Where do you want to go?:</h3>
@@ -20,7 +21,7 @@
             <p><a href='/makeprediction'>Make a Prediction</a></p>
             <p><a href='/repo'>Git Hub Repo</a></p>
         </div>
-        <div class="content">
+        <div class="content"> <!-- Crate images forcontent-->
             <div class="images-container">
                 <div class="image-container">
                     <img src="{{ url_for('static', filename='img/wine.png') }}" alt="Wine Banner" width="1305" height="100">

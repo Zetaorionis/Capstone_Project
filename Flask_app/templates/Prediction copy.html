@@ -12,7 +12,6 @@
 
 <body>
     <div class="container">
-        <!-- Create menu bar for navigation-->
         <div id="sidebar">
             <h2>Vino & Machine Learning: The Perfect Pairing</h2>
             <hr>
@@ -23,18 +22,29 @@
             <p><a href='/makeprediction'>Make a Prediction</a></p>
             <p><a href='/repo'>Git Hub Repo</a></p>
         </div>
+
         <div class = "content">
             <div>
                 <h2> Let's Make a Prediction</h2>
-                <!-- Create form for integer submission to extract wine based on index-->
                 <form action="/result" method="POST">
                     <label for="row">Select a number from 0-100 <br> to select a wine from our test dataset: </label>
                     <input type="text" id="row" name="row">
+                <!-- 	<br>
+                    <label for="w_class">Working Class</label>
+                    <select id="w_class" name="w_class">
+                    <option value="0">Federal-gov</option>
+                    <option value="1">Local-gov</option>
+                    <option value="2">Never-worked</option>
+                    <option value="3">Private</option>
+                    <option value="4">Self-emp-inc</option>
+                    <option value="5">Self-emp-not-inc</option>
+                    <option value="6">State-gov</option>
+                    <option value="7">Without-pay</option>
+                    </select> -->
                         <br>
-                    <input type="submit" value="Make Prediction">
+                    <input type="submit" value="Submit">
                 </form> 
             </div>
-            <!-- Display confusion Matrix-->
             <div>
                 <img src="{{ url_for('static', filename='img/confusion_matrix.png') }}" alt="Confusion Matrix", height =500>
             </div>
@@ -60,4 +70,7 @@
         }
     </script>
 </body>
+
+<!-- HTML !-->
+
 </html>
