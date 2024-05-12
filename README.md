@@ -62,8 +62,6 @@ The dataset used for this project was obtained from Kaggle, with 130,000 rows an
 ### Main question/prediction
 How can we leverage TensorFlow deep learning models to predict wine ratings based on key factors such as price, wine type, and region? This project aims to develop a robust neural network architecture using TensorFlow, capable of effectively learning complex patterns from the input data. By preprocessing the dataset to handle both categorical and numerical data and incorporating features such as price, points, rating category, wine type, country, and variety, we seek to create a predictive model that offers insights into the factors shaping wine quality and appeal.
 
-### How does the model work?
-
 ### Model accuracy and optimization process
 Our project utilized a Keras TensorFlow deep learning model to predict wine ratings based on key features. This neural network architecture was optimized through hyperparameter tuning and cross-validation techniques. Achieving an accuracy range of 75% to 80%, our model demonstrates reliable precision and generalization. However, further refinement and the inclusion of additional data could enhance its performance for even more accurate predictions.
 
