@@ -25,13 +25,18 @@
 
         <div class = "content">
             <div>
-            <h3>{{result}}</h3>
-<!--                 <h1>Results:</h1><hr>
-                <h3> Wine: {{result.wine}}</h3>
-                <h3>Region/Country: {{result.country}}</h3>
-                <h2>Prediction: {{result.prediction}}</h2>
-                <h3>Actual Point Rating:  {{result.rating}}</h3> 
-                <hr>  -->
+                <h1>Results:</h1><hr>
+                <h3>Wine: {{result.title}}</h3>
+                <h3>Region/Country: {{result.region}}, {{result.country}}</h3>
+                <h3>Vintage: {{result.vintage}}</h3>
+                <h3>Variety: {{result.variety}}({{result.type}})</h3>
+                <h3>Price: ${{result.price}}</h3>
+                <h3>Actual Point Rating:  {{result.points}} ({{result.rating_category}})</h3>
+                <hr>
+                <h3>Prediction: {{result.prediction}}</h3>
+                <h3>{{result.accuracy}}</h3>
+
+                <hr> 
                 <div class="navigation-container">
                     <h2>Where do you want to go?:</h2>
                     <select id="endpointSelect">

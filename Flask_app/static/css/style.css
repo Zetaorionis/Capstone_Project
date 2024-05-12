@@ -2,7 +2,7 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0; 
+  background-color: #D2B48C;
   background-image: url('../img/Wine_background.png'); 
   background-size: cover; 
   height: 100%;
@@ -46,8 +46,8 @@ html, body {
 }
 #sidebar {
   flex: 0 0 150px;
-  background-color: #777;
-  color: aliceblue;
+  background-color:#800020;
+  color: #F8F8FF;
   padding: 20px;
 }
 .content {
@@ -71,12 +71,12 @@ html, body {
   color: rgb(0, 170, 255);
 }
 
-#sidebar a:visited {
-  color: white;
+#sidebar a, a:visited {
+  color: #F8F8FF;
 }
 
 #sidebar a:hover {
-  color: #00FF00;
+  color: #D2B48C;
 }
 
 #sidebar h3,
@@ -85,7 +85,4 @@ html, body {
   text-align: center;
 }
 
-#current {
-  color: black;
-}
 
