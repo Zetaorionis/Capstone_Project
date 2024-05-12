@@ -7,7 +7,17 @@ html, body {
   background-size: cover; 
   height: 100%;
 }
-
+/*/Container Styling */
+.content {
+  flex: 1;
+  padding: 20px;
+}
+.container {
+  display: flex;
+  width: 80%;
+  height:100%;
+}
+ 
 .images-container {
   display: flex;
   flex-direction: column;
@@ -44,20 +54,12 @@ html, body {
   top: 0;
   left: 210px;
 }
+/* Menu styling */
 #sidebar {
   flex: 0 0 150px;
   background-color:#800020;
   color: #F8F8FF;
   padding: 20px;
-}
-.content {
-  flex: 1;
-  padding: 20px;
-}
-.container {
-  display: flex;
-  width: 80%;
-  height:100%;
 }
 #sidebar p {
   display: block;
@@ -66,7 +68,6 @@ html, body {
   text-align: center;
   font-size: 1.3em;
 }
-
 #sidebar a:active {
   color: rgb(0, 170, 255);
 }
