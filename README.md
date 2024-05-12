@@ -14,7 +14,22 @@ The objective of this project was to use machine learning to explore wine data a
 
 ![image](https://github.com/Zetaorionis/Capstone_Project/assets/143036776/84c175be-fdfa-49b8-8246-8342630f60b7)
 
-## Technologies Used
+## Table of Contents
+
+
+- [Data Cleaning and Storage](#DataCleaningandStorage)
+- [Machine Learning](#MachineLearning)
+- [Dashboard](#Dashboard)
+- [Website](#Website)
+- [Dataset](#Dataset)
+- [Main question/prediction](#Mainquestion/prediction)
+- [Model accuracy and optimization process](#Modelaccuracyandoptimizationprocess)
+- [Possible Future Use](#PossibleFutureUse)
+- [References](#References)
+- [Github Repository](#GithubRepository)
+- [Authors](#Authors)
+
+# Technologies Used
 
 ### Data Cleaning and Storage
 * **Data Extraction:** We used MongoDB to store and extract data, allowing for efficient handling of large datasets.
@@ -42,7 +57,7 @@ We used Tableau to conduct data analysis and present our findings in a visually 
 The dataset used for this project was obtained from Kaggle, with 130,000 rows and 10 columns of wine reviews. You can find the original data at this link: Kaggle Wine Reviews. The dataset, named winemag-data-130k-v2.csv, contains wine reviews scraped from Wine Enthusiast on June 15, 2017, and rescraped on November 22, 2017. The rescraping included additional information like review titles, which allowed for the extraction of the year, and data on the taster, including their name and Twitter handle. These adjustments also addressed duplicate entry issues. After cleaning the data, the final dataset contained 77,931 rows and 11 columns, including details like description, points, price, province, region, title, variety, winery, rating category, and type.
 
 
-## Machine Learning Model
+# Machine Learning Model
 
 ### Main question/prediction
 How can we leverage TensorFlow deep learning models to predict wine ratings based on key factors such as price, wine type, and region? This project aims to develop a robust neural network architecture using TensorFlow, capable of effectively learning complex patterns from the input data. By preprocessing the dataset to handle both categorical and numerical data and incorporating features such as price, points, rating category, wine type, country, and variety, we seek to create a predictive model that offers insights into the factors shaping wine quality and appeal.
