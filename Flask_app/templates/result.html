@@ -36,7 +36,12 @@
                 <h3>Prediction: {{result.prediction}}</h3>
                 <h3>{{result.accuracy}}</h3>
                 <br>
-                <h3><a href='/makeprediction'>Try Again?</a></h4>
+                <h3><a href='/makeprediction'>Try Again?</a></h3>
+                </div>
+        <div class = 'box'>
+            <img class = 'transparent' src="{{ url_for('static', filename='img/barrels.jpg') }}" alt="Confusion Matrix", width =490>
+        </div>
+
 
 </body>
 </html>

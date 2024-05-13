@@ -76,3 +76,7 @@ html, body {
 .box{
   text-align: center;
 }
+
+.transparent{
+  opacity:.5;
+}
