@@ -59,11 +59,11 @@ html, body {
   color: rgb(0, 170, 255);
 }
 
-#sidebar a, #sidebar a:visited {
+#sidebar a, #sidebar a:visited, .link a , .link a:visited {
   color: #F8F8FF;
 }
 
-#sidebar a:hover {
+#sidebar a:hover, .link a:hover,input[type=submit]:hover {
   color: #D2B48C;
 }
 
@@ -79,4 +79,29 @@ html, body {
 
 .transparent{
   opacity:.5;
+}
+
+h3 em {
+  color: #800020;
+}
+
+.link_box{
+  width: 150px;
+  background-color:#800020;
+  border-radius: 10px;
+}
+
+.link {
+  align-self: center;
+  padding:15px;
+  text-align: center;
+}
+
+input[type=submit] {
+  background-color:#800020;
+  padding: 15px;
+  color: #F8F8FF;
+  cursor:pointer;
+  font-size:1em;
+  border-radius: 10px
 }

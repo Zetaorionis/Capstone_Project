@@ -17,11 +17,18 @@ def predict_rating(predict_row):
     return result[0][0] 
 
 # Prediction accuracy function : compares passed values of prediction and target to return accuracy string (right or wrong)
+# Additionally will return confusion matrix value (True Negative, False Positive ...etc. )
 def pred_accuracy(prediction, target):
-    if prediction == target:
-        return "The model's prediction was correct!"
+    correct = "The model's prediction was correct!"
+    incorrect = ""
+    if target and prediction: 
+        return "True Positive", correct
+    elif not target and not prediction:
+        return "True Negative", correct
+    elif not target and prediction:
+        return "False Positive", incorrect
     else: 
-        return "The model got it wrong for this wine"
+        return "False Negative", incorrect
 
 # Root endpoint (Landing/Main page with links to the other endpoints)
 @app.route('/')
@@ -69,18 +76,20 @@ def result():
             # Calls predict_rating function and passes numpy array of scaled data
             prediction = predict_rating(predict_row)
 
-            # Sets response text based on prediction probabilty (less than .5 = False/< 90) and adds probability value
+            # Assigns confusion matrix value and accuracy text based on prediction probabilty (less than .5 = False/< 90) 
+            # and adds probability value
             if prediction < .5:
                 prediction_text = f"This wine's rating is less than 90 points (Probability: {round(float(prediction),2)})"
-                accuracy = pred_accuracy(False,scaled_df.iloc[wine,-1])
+                cf_value, accuracy = pred_accuracy(False,scaled_df.iloc[wine,-1])
             else: 
                 prediction_text = f"This wine's rating is 90 points or higher! (Probability: {round(float(prediction),2)})"
-                accuracy = pred_accuracy(True,scaled_df.iloc[wine,-1])
+                cf_value, accuracy = pred_accuracy(True,scaled_df.iloc[wine,-1])
 
             # Create content dictionary based on wine metadata and add a prediction key with prediction text
             result = wine_data.to_dict()
             result['prediction'] = prediction_text
             result['accuracy'] = accuracy
+            result['cf_value'] = cf_value
 
             return render_template('result.html', result = result)  # render results template and pass content dictionary for display
         # Catch value error for input not being an integer 
