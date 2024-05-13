@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ML Test Data Predictions</title>
+    <title>ML User-driven Predictions</title>
       <!-- CSS - Use first link if not using flask, use second link if using flask  -->
 <!--   <link rel="stylesheet" type="text/css" href="../static/css/style.css"> -->
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -26,9 +26,15 @@
         <div class = "content">
             <div>
                 <h2> Let's Make a Prediction</h2>
-                <form action="/result" method="POST">
-                    <label for="row">Select a number from 0-100 <br> to select a wine from our test dataset: </label>
-                    <input type="text" id="row" name="row">
+                <form action="/result2" method="POST">
+                    <label for="country">Country: </label>
+                    <input type="text" id="country" name="country">
+                    <label for="variety">Variety: </label>
+                    <input type="text" id="variety" name="variety">
+                    <label for="vintage">Vintage: </label>
+                    <input type="text" id="vintage" name="vintage">
+                    <label for="price">Price: </label>
+                    <input type="text" id="price" name="price">
                 <!-- 	<br>
                     <label for="w_class">Working Class</label>
                     <select id="w_class" name="w_class">
@@ -42,7 +48,7 @@
                     <option value="7">Without-pay</option>
                     </select> -->
                         <br>
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Make Prediction">
                 </form> 
             </div>
             <div>

@@ -3,6 +3,7 @@ from flask import Flask, redirect, url_for, render_template, send_from_directory
 import pandas as pd
 import numpy as np
 import tensorflow as tf
+from joblib import load
 
 # Establish Falsk App, defining static and template folders for rendering
 app = Flask(__name__, static_url_path='',
@@ -45,7 +46,7 @@ def repo():
 
 # API endpoint for displaying prediction results. Function loads model and makes prediciton
 @app.route('/result', methods = ['POST'])  # redered via form submission on makeprediction route
-def result3():
+def result():
     # Loading wine data (for metadata display) & scaled data (for model prediction)
     wine_df = pd.read_csv('static/resources/clean_wine_data_final.csv')
     scaled_df = pd.read_csv('static/resources/scaled_data_df.csv')
@@ -82,15 +83,34 @@ def result3():
             result['accuracy'] = accuracy
 
             return render_template('result.html', result = result)  # render results template and pass content dictionary for display
-
-        except ValueError as e: 
+        # Catch value error for input not being an integer 
+        except ValueError as e:     
             message = f"You did not enter a number. (Error Message: {e.args[0]})."
             return render_template('error.html', message = message)
 
 # API endpoint to Trained Model Landing Page
 @app.route('/makeprediction2')
 def makeprediction2():
-    return render_template('Prediction.html')
+    return render_template('Prediction2.html')
+
+# API endpoint for displaying prediction results. Function loads model and makes prediciton
+@app.route('/result2', methods = ['POST'])  # redered via form submission on makeprediction route
+def result2():
+
+    X_scaler = load('static/resources/X_scaler.bin')
+
+    if request.method == 'POST':
+        to_predict_list = request.form.to_dict()
+
+        result = to_predict_list
+
+        data =np.zeros(68)
+
+        result = 'country_'+ to_predict_list['country']
+
+        return render_template('result2.html', result = result)
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Model Display</title>
+      <!-- CSS - Use first link if not using flask, use second link if using flask  -->
+<!--   <link rel="stylesheet" type="text/css" href="../static/css/style.css"> -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+    <div class="container">
+        <!-- Create menu bar for navigation-->
+        <div id="sidebar">
+            <h2>Vino & Machine Learning: The Perfect Pairing</h2>
+            <hr>
+            <br>
+            <h3>Where do you want to go?:</h3>
+            <p><a id='current-link' href='/'>Home</a></p>
+            <p><a href='/dashboard'>Tableau Dashboard</a></p>
+            <p><a href='/makeprediction'>Make a Prediction</a></p>
+            <p><a href='/repo'>Git Hub Repo</a></p>
+        </div>
+        <div class = "content">
+            <div>
+                <h1>Results:</h1><hr>
+                <h3>{{result}}</h3>
+                <br>
+                <h3><a href='/makeprediction'>Try Again?</a></h4>
+
+                <hr> 
+                <div class="navigation-container">
+                    <h2>Where do you want to go?:</h2>
+                    <select id="endpointSelect">
+                        <option value="dashboard">Tableau Dashboard</option>
+                        <option value="makeprediction">Make a Prediction</option>
+                        <option value="repo">GitHub Repo</option>
+                    </select>
+                    <button onclick="redirectToEndpoint()">Go</button>
+                </div>
+            </div>
+        </div>
+
+
+    <script>
+        function redirectToEndpoint() {
+            var selectElement = document.getElementById("endpointSelect");
+            var selectedValue = selectElement.value;
+            window.location.href = "/" + selectedValue;
+        }
+    </script>
+</body>
+</html>
