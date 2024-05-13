@@ -16,20 +16,24 @@ The objective of this project was to use machine learning to explore wine data a
 
 ## Table of Contents
 
-
-- [Data Cleaning and Storage](#Data-Cleaning-and-Storage)
-- [Machine Learning](#Machine-Learning)
-- [Dashboard](#Dashboard)
-- [Website & Flask App](#Website-&-Flask-App)
-- [Dataset](#Dataset)
-- [Main question/prediction](#Main-question/prediction)
-- [Model accuracy and optimization process](#Model-accuracy-and-optimization-process)
+- [Dataset](##Dataset)
+- [Data Cleaning and Storage](###Data-Cleaning-and-Storage)
+- [Data Analysis and Tableau Dashboard](###Data-Analysis-and-Tableau-Dashboard)
+- [Machine Learning Model](#Machine-Learning-Model)
+    - [Main question/prediction](#Main-question/prediction)
+    - [Predictive Model Target Creation](###Predictive-Model-Target-Creation)
+    - [Model accuracy and optimization process](#Model-accuracy-and-optimization-process)
+    - [Model Selection](###Model-Selection)
+- [Website & Flask App](##Website-and-Flask-App)
+    -[Front End Development](###Front-End-Development)
+    -[ ### Using the Flaks App]( ###Using-the-Flask-App)
 - [Possible Future Use](#Possible-Future-Use)
 - [References](#References)
 - [Github Repository](#Github-Repository)
 - [Authors](#Authors)
 
-# Technologies Used
+## Dataset
+The dataset used for this project was obtained from Kaggle, with 130,000 rows and 10 columns of wine reviews. You can find the original data at this link: Kaggle Wine Reviews. The dataset, named winemag-data-130k-v2.csv, contains wine reviews scraped from Wine Enthusiast on June 15, 2017, and rescraped on November 22, 2017. The rescraping included additional information like review titles, which allowed for the extraction of the year, and data on the taster, including their name and Twitter handle. These adjustments also addressed duplicate entry issues. After cleaning the data, the final dataset contained 77,931 rows and 11 columns, including details like description, points, price, province, region, title, variety, winery, rating category, type, and vintage(year).
 
 ### Data Cleaning and Storage
 * **Data Extraction:** We used MongoDB to store and extract data, allowing for efficient handling of large datasets.
@@ -39,33 +43,33 @@ The objective of this project was to use machine learning to explore wine data a
 * **Rating Categorization:** We added a column to categorize wines based on their point-based ratings.
 * **Final Outcome:** The resulting dataset contained only relevant features, which facilitated a more efficient and effective analysis.
 
-### Machine Learning
-In order to create a predictive model, we created a boolean target feature based on rating (Does the wine have a points rating of 90 or higher?). Additional pre-processing was completed, including making dummy columns for categorical data and applying a standard scalar in order to prepare our dataset for predicitive modeling. 
-
-Selecting our model, we went through several iterations, using SciKitLearn's library to use Logistic Regression, K-Nearest-Neighbors (KNN) and a Random Forrest model. In the end, we decided on a Neural Network/Deep Learning Model, creating an input layer, hidden layers for processing, and a sigmoid (binary) output layer that could classify the boolean target. Ultimately, based on the number of categorical bins in our dataset, we felt that the Neural Network was handling the data the best. We employed a Keras Tuner to help with the optimization, but fell back to a simpler model that surpassed 75% accuracy. 
-
-### Dashboard
+### Data Analysis and Tableau Dashboard
 We used Tableau to conduct data analysis and present our findings in a visually compelling story. Through this platform, we created a dashboard that illustrates key insights into wine data, allowing users to explore and interact with the results. The dashboard provides a dynamic map showcasing different U.S. provinces, with wine ratings categorized to reveal trends and patterns. You can view and interact with the dashboard to explore the data and gain a deeper understanding of our analysis here: [Wine Analysis](https://public.tableau.com/app/profile/viktor.kabelkov/viz/WineAnalysis_17149494454560/USProvincesMapperRatingCategory)
-
-### Website & Flask App
- We created a website to serve as an interface for users to interact with our model. To facilitate this, we used Flask, a lightweight web framework, to build an API that allows for seamless data retrieval and processing. This API enables dynamic data interaction, allowing for users to interact with our machine leanring model in order to make predictions. Additional functionality to display and interact with the data using a database could be employed in the future. 
 
 ![image](https://github.com/Zetaorionis/Capstone_Project/assets/143036776/3579ae9b-3dc8-4c6e-bdb4-1b895a1b41f6)
 
-
-## Dataset
-The dataset used for this project was obtained from Kaggle, with 130,000 rows and 10 columns of wine reviews. You can find the original data at this link: Kaggle Wine Reviews. The dataset, named winemag-data-130k-v2.csv, contains wine reviews scraped from Wine Enthusiast on June 15, 2017, and rescraped on November 22, 2017. The rescraping included additional information like review titles, which allowed for the extraction of the year, and data on the taster, including their name and Twitter handle. These adjustments also addressed duplicate entry issues. After cleaning the data, the final dataset contained 77,931 rows and 11 columns, including details like description, points, price, province, region, title, variety, winery, rating category, type, and vintage(year).
-
-
-# Machine Learning Model
+## Machine Learning Model
 
 ### Main question/prediction
 How can we leverage TensorFlow deep learning models to predict wine ratings based on key factors such as price, wine type, and region? This project aims to develop a robust neural network architecture using TensorFlow, capable of effectively learning complex patterns from the input data. By preprocessing the dataset to handle both categorical and numerical data and incorporating features such as price, wine type, country, and variety, we seek to create a predictive model that offers insights into the factors shaping wine quality and appeal.
+
+### Predictive Model Target Creation
+In order to create a predictive model, we created a boolean target feature based on rating (Does the wine have a points rating of 90 or higher?). Additional pre-processing was completed, including making dummy columns for categorical data and applying a standard scalar in order to prepare our dataset for predicitive modeling. 
+
+### Model Selection 
+Selecting our model, we went through several iterations, using SciKitLearn's library to use Logistic Regression, K-Nearest-Neighbors (KNN) and a Random Forrest model. In the end, we decided on a Neural Network/Deep Learning Model, creating an input layer, hidden layers for processing, and a sigmoid (binary) output layer that could classify the boolean target. Ultimately, based on the number of categorical bins in our dataset, we felt that the Neural Network was handling the data the best. We employed a Keras Tuner to help with the optimization, but fell back to a simpler model that surpassed 75% accuracy. 
 
 ### Model accuracy and optimization process
 Our project utilized a Keras TensorFlow deep learning model to predict wine ratings based on key features. This neural network architecture was optimized through hyperparameter tuning and cross-validation techniques. Achieving an accuracy range of 75% to 80%, our model demonstrates reliable precision and generalization. However, further refinement and the inclusion of additional data could enhance its performance for even more accurate predictions.
 
 ![image](https://github.com/Zetaorionis/Capstone_Project/assets/143036776/87d0e726-6495-4b95-a807-b2934af12325)
+
+## Website and Flask App
+ 
+ ### Front End Development
+ Initially, we created a static landing page(website) through GitHub pages to navigate to our Tableau Dashboard and Git Hub Repository. In order to provide a way for the user to interact with the predictive model, we utilized Flask, a lightweight web framework. This app allows users to interact with our machine leanring model in order to make predictions, running code in the backend to create predictions and display the results based on user-input. Future functionality could be added in order for users to submit custom wine selections to the model in order to see rating predicitons.
+
+ ### Using the Flaks App
 
 
 ## Possible Future Use
