@@ -20,7 +20,7 @@ The objective of this project was to use machine learning to explore wine data a
 - [Data Cleaning and Storage](#Data-Cleaning-and-Storage)
 - [Data Analysis and Tableau Dashboard](#Data-Analysis-and-Tableau-Dashboard)
 - [Machine Learning Model](#Machine-Learning-Model)
-    - [Main question/prediction](#Main-question-prediction)
+    - [Main question/prediction](#Main-questionprediction)
     - [Predictive Model Target Creation](#Predictive-Model-Target-Creation)
     - [Model accuracy and optimization process](#Model-accuracy-and-optimization-process)
     - [Model Selection](#Model-Selection)
