@@ -20,13 +20,13 @@ The objective of this project was to use machine learning to explore wine data a
 - [Data Cleaning and Storage](#Data-Cleaning-and-Storage)
 - [Data Analysis and Tableau Dashboard](#Data-Analysis-and-Tableau-Dashboard)
 - [Machine Learning Model](#Machine-Learning-Model)
-    - [Main question/prediction](#Main-questionprediction)
+    - [Main question/prediction](#Main-question/prediction)
     - [Predictive Model Target Creation](#Predictive-Model-Target-Creation)
-    - [Model accuracy and optimization process](#Model-accuracy-and-optimization-process)
     - [Model Selection](#Model-Selection)
+    - [Model accuracy and optimization process](#Model-accuracy-and-optimization-process)
 - [Website & Flask App](#Website-and-Flask-App)
     - [Front End Development](#Front-End-Development)
-    - [Using the Flaks App](#Using-the-Flask-App)
+    - [Using the Flask App](#Using-the-Flask-App)
 - [Possible Future Use](#Possible-Future-Use)
 - [References](#References)
 - [Github Repository](#Github-Repository)
@@ -69,8 +69,10 @@ Our project utilized a Keras TensorFlow deep learning model to predict wine rati
  ### Front End Development
  Initially, we created a static landing page(website) through GitHub pages to navigate to our Tableau Dashboard and Git Hub Repository. In order to provide a way for the user to interact with the predictive model, we utilized Flask, a lightweight web framework. This app allows users to interact with our machine leanring model in order to make predictions, running code in the backend to create predictions and display the results based on user-input. Future functionality could be added in order for users to submit custom wine selections to the model in order to see rating predicitons.
 
- ### Using the Flaks App
+ ### Using the Flask App
+Running the 'app.py' file from within the [Flask_app](https://github.com/Zetaorionis/Capstone_Project/tree/main/Flask_app) directory of our GitHub repository will locally run the Flask application in your browser.
 
+Upon loading, you will be taken to the main landing page where the user can view our project. The landing page includes information about the dataset, links to project related pages, and incldes a word cloud that was generated from the descriptions of the wine reviews in our dataset using python's wordcloud library.  Interaction with the model is on the "Make a Prediction" page (link available on landing page). The page includes a form field for user input and also displays the model's overall performance on the testing dataset (visualized as a confusion matrix). The user can enter an integer into the form field (0-100), and submit the form. The number submitted acts as the index(row number) of the model's testing dataset, and extracts that row from the dataset and provides it to the model to make a prediction. Upon submission, the user will be routed to a 'Results' page that displays the input featuers (and some additional metadata about the wine), the prediction of the model made regarding that wine, and a statement regarding if the model was correct or not. The user can navigate back to the prediction page in order to submit a different value. 
 
 ## Possible Future Use
 In the future, this model could be enhanced by incorporating additional data sources, such as customer reviews or expert ratings, to improve its accuracy. Additional features may be able to be extracted using sentiment analysis or keyword extraction from the reviews in the original dataset. Improvements could also come from exploring different algorithms, such as gradient boosting or neural networks, which may offer greater predictive power. Additionally, expanding the dataset to include more wine regions and vintages could provide broader insights and allow for a more comprehensive analysis. Further development could focus on creating a recommendation system to assist consumers in selecting wines based on personalized preferences and historical data.
