@@ -44,7 +44,7 @@ def makeprediction():
 def repo():
     return redirect('https://github.com/Zetaorionis/Capstone_Project/tree/main')
 
-# API endpoint for displaying prediction results. Function loads model and makes prediciton
+# API endpoint for displaying prediction results. 
 @app.route('/result', methods = ['POST'])  # redered via form submission on makeprediction route
 def result():
     # Loading wine data (for metadata display) & scaled data (for model prediction)
@@ -71,10 +71,10 @@ def result():
 
             # Sets response text based on prediction probabilty (less than .5 = False/< 90) and adds probability value
             if prediction < .5:
-                prediction_text = f"We predict this wine is less than 90 points (Probability: {round(float(prediction),2)})"
+                prediction_text = f"This wine's rating is less than 90 points (Probability: {round(float(prediction),2)})"
                 accuracy = pred_accuracy(False,scaled_df.iloc[wine,-1])
             else: 
-                prediction_text = f"This wine is 90 points or higher! (Probability: {round(float(prediction),2)})"
+                prediction_text = f"This wine's rating is 90 points or higher! (Probability: {round(float(prediction),2)})"
                 accuracy = pred_accuracy(True,scaled_df.iloc[wine,-1])
 
             # Create content dictionary based on wine metadata and add a prediction key with prediction text
@@ -88,12 +88,14 @@ def result():
             message = f"You did not enter a number. (Error Message: {e.args[0]})."
             return render_template('error.html', message = message)
 
-# API endpoint to Trained Model Landing Page
+##########################################################################
+#### VERSION 2 of Prediction script - Work in Progress (Incomplete)
+# API endpoint to 
 @app.route('/makeprediction2')
 def makeprediction2():
     return render_template('Prediction2.html')
 
-# API endpoint for displaying prediction results. Function loads model and makes prediciton
+# API endpoint for displaying prediction results (version 2- User-driven)
 @app.route('/result2', methods = ['POST'])  # redered via form submission on makeprediction route
 def result2():
 
@@ -106,11 +108,14 @@ def result2():
 
         data =np.zeros(68)
 
-        result = 'country_'+ to_predict_list['country']
+        country_col = 'country_'+ to_predict_list['country']
+        variety_col = 'variety_'+ to_predict_list['variety']
+        vintage_col = 'vintage_'+ to_predict_list['vintage']
+        price_col = int(to_predict_list['price'])
 
         return render_template('result2.html', result = result)
 
-
+##################################################################################3
 
 if __name__ == '__main__':
     app.run(debug=True)
