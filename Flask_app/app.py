@@ -5,6 +5,8 @@ import numpy as np
 import tensorflow as tf
 from joblib import load
 
+
+os.chdir(os.path.dirname(os.path.realpath(__file__)))
 # Establish Falsk App, defining static and template folders for rendering
 app = Flask(__name__, static_url_path='',
             static_folder='static',
