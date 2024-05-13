@@ -81,7 +81,7 @@ html, body {
   opacity:.5;
 }
 
-h3 em {
+h3 span {
   color: #800020;
 }
 
@@ -104,4 +104,10 @@ input[type=submit] {
   cursor:pointer;
   font-size:1em;
   border-radius: 10px
+}
+
+.link a{
+  text-decoration:none;
+  font-size:1em;
+  font-weight:normal;
 }

@@ -20,7 +20,7 @@ def predict_rating(predict_row):
 # Additionally will return confusion matrix value (True Negative, False Positive ...etc. )
 def pred_accuracy(prediction, target):
     correct = "The model's prediction was correct!"
-    incorrect = ""
+    incorrect = "The model got it wrong for this wine."
     if target and prediction: 
         return "True Positive", correct
     elif not target and not prediction:
