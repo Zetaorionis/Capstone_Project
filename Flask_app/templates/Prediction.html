@@ -24,40 +24,39 @@
             <p><a href='/repo'>Git Hub Repo</a></p>
         </div>
         <div class = "content">
-            <div>
-                <h2> Let's Make a Prediction</h2>
+            <div class = 'box'>
+                <h2><u>Let's Make a Prediction</u></h2>
                 <!-- Create form for integer submission to extract wine based on index-->
                 <form action="/result" method="POST">
-                    <label for="row">Select a number from 0-100 <br> to select a wine from our test dataset: </label>
+                    <label for="row"><b>Select a number from 0-100 to select a wine from our test dataset:</b> </label><br><br>
                     <input type="text" id="row" name="row">
-                        <br>
+                        <br><br>
                     <input type="submit" value="Make Prediction">
-                </form> 
+                </form> <br>
+                <h3> <u>What is this model predicting?</u> </h3>
+                <p> Our model attempts to predict whether a wine has a rating of 90 points or more given several features about the wine
+                    <b>(price, country, variety and vintage)</b>. 
+                </p>
+                <h3><u>What data is the model using? </u></h3>
+                <p> When you enter an integer in the form above, the predicitve model will be given a wine with that corresponding
+                     row number(index) from the test dataset we used to test the accuracy of our model (i.e. if you enter 3, the model 
+                     will make a prediction on the wine in the test dataset that has a row index of 3). 
+                     </p>
+                <h3><u> What will I see when I submit the form? </u></h3>
+                <p> When you submit the form above, the results page will display the wine you sent to the model to predict, including
+                    the features used to make the prediction along with some additional metadata
+                    from the original/cleaned dataset used in our data analysis.
+                </p>
+                <p> The page will also show the Acutal Rating(points), what the model predictied (Is the wine 90 points or above?), 
+                    and a statement about the model's accuracy for that wine. 
+                </p>
+
             </div>
             <!-- Display confusion Matrix-->
-            <div>
+            <div class = 'box'>
+                <h2> <u>Confusion Matrix</u></h2>
+                <h4> Below is the confusion matrix of our model's <br>performance on the test dataset</h4>
                 <img src="{{ url_for('static', filename='img/confusion_matrix.png') }}" alt="Confusion Matrix", height =500>
             </div>
-
-            <hr> 
-            <div class="navigation-container">
-                <h2>Where do you want to go?:</h2>
-                <select id="endpointSelect">
-                    <option value="dashboard">Tableau Dashboard</option>
-                    <option value="makeprediction">Make a Prediction</option>
-                    <option value="repo">GitHub Repo</option>
-                </select>
-                <button onclick="redirectToEndpoint()">Go</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function redirectToEndpoint() {
-            var selectElement = document.getElementById("endpointSelect");
-            var selectedValue = selectElement.value;
-            window.location.href = "/" + selectedValue;
-        }
-    </script>
 </body>
 </html>

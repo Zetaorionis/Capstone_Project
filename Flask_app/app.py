@@ -87,6 +87,9 @@ def result():
         except ValueError as e:     
             message = f"You did not enter a number. (Error Message: {e.args[0]})."
             return render_template('error.html', message = message)
+        except IndexError as e:
+            message = f"The number you entered is larger than our test dataset."
+            return render_template('error.html', message = message)
 
 ##########################################################################
 #### VERSION 2 of Prediction script - Work in Progress (Incomplete)

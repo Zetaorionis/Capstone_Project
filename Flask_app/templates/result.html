@@ -38,26 +38,5 @@
                 <br>
                 <h3><a href='/makeprediction'>Try Again?</a></h4>
 
-                <hr> 
-                <div class="navigation-container">
-                    <h2>Where do you want to go?:</h2>
-                    <select id="endpointSelect">
-                        <option value="dashboard">Tableau Dashboard</option>
-                        <option value="makeprediction">Make a Prediction</option>
-                        <option value="repo">GitHub Repo</option>
-                    </select>
-                    <button onclick="redirectToEndpoint()">Go</button>
-                </div>
-            </div>
-        </div>
-
-
-    <script>
-        function redirectToEndpoint() {
-            var selectElement = document.getElementById("endpointSelect");
-            var selectedValue = selectElement.value;
-            window.location.href = "/" + selectedValue;
-        }
-    </script>
 </body>
 </html>

@@ -7,59 +7,46 @@ html, body {
   background-size: cover; 
   height: 100%;
 }
+
 /*/Container Styling */
-.content {
-  flex: 1;
-  padding: 20px;
-}
 .container {
   display: flex;
-  width: 80%;
-  height:100%;
-}
- 
-.images-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin:0;
+  padding:0;
 }
 
-.image-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
+.content {
+  flex: 1;
+  display:grid;
+  grid-template-columns: 650px 650px;
+  grid-template-rows: 350px 300px;
+  margin: auto 10px;
+  grid-row-gap: 10px;
+  grid-column-gap:10px;
+  padding:0;
 }
 
-.image-container img {
-  margin: 0 5px;
+.grid {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  font-family:sans-serif;
+  flex-direction:column;
+  text-align:center;
+}
+.grid p{
+ margin:0;
 }
 
-.navigation-container {
-  text-align: center;
-  
-}
-.navigation-container select,
-.navigation-container button {
-    margin-top: 10px;
-}
-
-.image-container img:nth-child(2) {
-  margin-top: 130px; 
-}
-.image-container img:nth-child(3) {
-  margin-top: 135px; 
-}
-.images-container img:first-child {
-  position: absolute;
-  top: 0;
-  left: 210px;
-}
 /* Menu styling */
 #sidebar {
   flex: 0 0 150px;
   background-color:#800020;
   color: #F8F8FF;
-  padding: 20px;
+  padding: 20px 20px 0px;
+  margin: 0;
+  height:100vh;
 }
 #sidebar p {
   display: block;
@@ -86,4 +73,6 @@ html, body {
   text-align: center;
 }
 
-
+.box{
+  text-align: center;
+}

@@ -1,7 +1,9 @@
 # Machine Learning Analysis of Wine Data
 
 ## Summary
-The objective of this project was to use machine learning to explore wine data and gain insights into the factors that influence wine prices, ratings, and regions. By applying advanced algorithms, we identified patterns, correlations, and developed predictive models to better understand the wine industry. Our work culminated in a user-friendly dashboard that guides consumers by providing information on price, rating, variety, country, and region, helping them make more informed wine choices.
+The objective of this project was to use machine learning to explore wine data and gain insights into the factors that influence wine ratings, exploring price, region and a variety of other features. By applying advanced algorithms, we identifiedpatterns, correlations, and developed predictive models to better understand the wine industry. Our work culminated in :
+- A user-friendly dashboard (Tableau) that guides consumers by providing information on price, rating, variety, country, and region, helping them make more informed wine choices, and
+- A Flask application that allows users to see the machine learning model in action.
 
 ![image](https://github.com/Zetaorionis/Capstone_Project/assets/143036776/5170fd6b-a8fc-45c1-9a98-0c9f76f2a0b1)
 
