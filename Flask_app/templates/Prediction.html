@@ -19,16 +19,16 @@
             <br>
             <h3>Where do you want to go?:</h3>
             <p><a id='current-link' href='/'>Home</a></p>
-            <p><a href='/dashboard'>Tableau Dashboard</a></p>
+            <p><a href='/dashboard' target ='_blank'>Tableau Dashboard</a></p>
             <p><a href='/makeprediction'>Make a Prediction</a></p>
-            <p><a href='/repo'>Git Hub Repo</a></p>
+            <p><a href='/repo' target = '_blank'>Git Hub Repo</a></p>
         </div>
         <div class = "content">
             <div class = 'box'>
                 <h2><u>Let's Make a Prediction</u></h2>
                 <!-- Create form for integer submission to extract wine based on index-->
                 <form action="/result" method="POST">
-                    <label for="row"><b>Select a number from 0-100 to select a wine from our test dataset:</b> </label><br><br>
+                    <label for="row"><b>Select a number from 0-19,000 to select a wine from our test dataset:</b> </label><br><br>
                     <input type="text" id="row" name="row">
                         <br><br>
                     <input type="submit" value="Make Prediction">
@@ -48,8 +48,8 @@
                     the features used to make the prediction along with some additional metadata
                     from the original/cleaned dataset used in our data analysis.
                 </p>
-                <p> The page will also show the Acutal Rating(points), what the model predictied (Is the wine 90 points or above?), 
-                    and a statement about the model's accuracy for that wine. 
+                <p> The page will also show the <em>actual</em> Rating(points), what the model <em>predicted</em> (Is the wine 90 points or above?), 
+                    and a statement about the model's <em>accuracy</em> for that wine. 
                 </p>
 
             </div>

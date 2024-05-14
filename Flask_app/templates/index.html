@@ -21,37 +21,35 @@
             <p><a href='/makeprediction'>Make a Prediction</a></p>
             <p><a href='/repo' target = '_blank'>Git Hub Repo</a></p>
         </div>
-        <div>
-<!--             <div class = 'banner'><img src="{{ url_for('static', filename='img/wine.png') }}" alt="Wine Banner"></div> -->
-            <div class="content"> <!-- Create images for content-->
-                <div class = 'grid'>
-                    <img src="{{ url_for('static', filename='img/word_cloud.png') }}" alt="Wine Word Cloud" height="300">
-                </div>
-                <div class="grid">
-                    <h2><u>Project Overview</u></h2>
-                    <p>The objective of this project was to use machine learning to explore wine data and gain insights into the 
-                        factors that influence wine ratings, exploring price, region and a variety of other features. By applying advanced algorithms, we identified
-                        patterns, correlations, and developed predictive models to better understand the wine industry. 
-                        Our work culminated in :
-                        <ul><li>A user-friendly dashboard (Tableau) that guides consumers by providing information 
-                        on price, rating, variety, country, and region, helping them make more informed wine choices, <b>and</b></li>
-                        <li> A Flask application (this site) that allows users to see the machine learning model in action.</li> </p>
-                </div>
-                <div class = 'grid'>
-                    <h2><u>Our Dataset</u></h2>
-                    <p>The dataset used for this project was obtained from 
-                        <a href = 'https://www.kaggle.com/datasets/zynicide/wine-reviews'>Kaggle</a> with 130,000 rows and 10 columns of wine reviews.
-                        The dataset contains wine reviews scraped from Wine Enthusiast in 2017, and included features such as winery, 
-                        review description, price, rating(points), wine variety, country, region and more. After cleaning the data, the 
-                        final dataset contained 77,931 rows and 11 columns, where we were able to add vintage(year), wine type and 
-                        rating category.</p>
-                </div>
-                <div class = 'grid'>
-                    <video height="300" controls autoplay>
-                        <source src="{{ url_for('static', filename='img/wine_vid.mp4 ') }}" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+        <div class="content"> <!-- Create images for content-->
+            <div class = 'grid'>
+                <img src="{{ url_for('static', filename='img/word_cloud.png') }}" alt="Wine Word Cloud" height="300">
             </div>
+            <div class="grid">
+                <h2><u>Project Overview</u></h2>
+                <p>The objective of this project was to use machine learning to explore wine data and gain insights into the 
+                    factors that influence wine ratings, exploring price, region and a variety of other features. By applying advanced algorithms, we identified
+                    patterns, correlations, and developed predictive models to better understand the wine industry. 
+                    Our work culminated in :
+                    <ul><li>A user-friendly dashboard (Tableau) that guides consumers by providing information 
+                    on price, rating, variety, country, and region, helping them make more informed wine choices, <b>and</b></li>
+                    <li> A Flask application (this site) that allows users to see the machine learning model in action.</li> </p>
+            </div>
+            <div class = 'grid'>
+                <h2><u>Our Dataset</u></h2>
+                <p>The dataset used for this project was obtained from 
+                    <a href = 'https://www.kaggle.com/datasets/zynicide/wine-reviews' target = '_blank'>Kaggle</a> with 130,000 rows and 10 columns of wine reviews.
+                    The dataset contains wine reviews scraped from Wine Enthusiast in 2017, and included features such as winery, 
+                    review description, price, rating(points), wine variety, country, region and more. After cleaning the data, the 
+                    final dataset contained 77,931 rows and 11 columns, where we were able to add vintage(year), wine type and 
+                    rating category.</p>
+            </div>
+            <div class = 'grid'>
+                <video height="300" controls autoplay>
+                    <source src="{{ url_for('static', filename='img/wine_vid.mp4 ') }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
         </div>
+    </div>
 </body>
 </html>
