@@ -74,7 +74,7 @@ Our project utilized a Keras TensorFlow deep learning model to predict wine rati
  ### Using the Flask App
 Running the 'app.py' file from within the [Flask_app](https://github.com/Zetaorionis/Capstone_Project/tree/main/Flask_app) directory of our GitHub repository will locally run the Flask application in your browser.
 
-Upon loading, you will be taken to the main landing page where the user can view our project. The landing page includes information about the dataset, links to project related pages, and incldes a word cloud that was generated from the descriptions of the wine reviews in our dataset using python's wordcloud library.  Interaction with the model is on the "Make a Prediction" page (link available on landing page). 
+Loading the app will take the user to the main landing page. The landing page includes information about the dataset, links to project related pages, and incldes a word cloud that was generated from the descriptions of the wine reviews in our dataset using python's wordcloud library.  Interaction with the model is on the "Make a Prediction" page (link available on landing page). 
 
 The prediction page includes a form field for user input and also displays the model's overall performance on the testing dataset (visualized as a confusion matrix). The user can enter an integer into the form field (0-100), and submit the form. The number submitted acts as the index(row number) of the model's testing dataset, and extracts that row from the dataset and provides it to the model to make a prediction. 
 
