@@ -94,7 +94,7 @@ def result():
             return render_template('result.html', result = result)  # render results template and pass content dictionary for display
         # Catch value error for input not being an integer 
         except ValueError as e:     
-            message = f"You did not enter a number. (Error Message: {e.args[0]})."
+            message = f"You did not enter an integer. Please try again. (Error Message: {e.args[0]})."
             return render_template('error.html', message = message)
         except IndexError as e:
             message = f"The number you entered is larger than our test dataset."
