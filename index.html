@@ -3,24 +3,291 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wine Rating Dataset- Analysis and Prediction Project!</title>
-    <!-- Our CSS -->
-    <link rel="stylesheet" type="text/css" href="static/css/style.css"> 
+    <title>Wine Rating Dataset - Analysis and Prediction Project</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        }
+
+        #sidebar {
+            width: 300px;
+            background: linear-gradient(180deg, #2c1810 0%, #8B0000 100%);
+            color: white;
+            padding: 2rem;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #sidebar h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: #FFD700;
+        }
+
+        #sidebar hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #FFD700, transparent);
+            margin-bottom: 1.5rem;
+        }
+
+        #sidebar h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #E6E6FA;
+        }
+
+        #sidebar a {
+            color: #E6E6FA;
+            text-decoration: none;
+            display: block;
+            padding: 0.8rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        #sidebar a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-left-color: #FFD700;
+            transform: translateX(5px);
+        }
+
+        #current-link {
+            background: rgba(255, 215, 0, 0.2);
+            border-left-color: #FFD700;
+            font-weight: bold;
+        }
+
+        .content {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            color: #2c1810;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .images-container {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .wine-banner {
+            width: 100%;
+            max-width: 1200px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            margin: 0 auto;
+            display: block;
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .media-item {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .media-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .media-item img,
+        .media-item video {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .media-item h3 {
+            margin-top: 1rem;
+            color: #2c1810;
+            text-align: center;
+        }
+
+        .navigation-container {
+            background: linear-gradient(135deg, #8B0000, #2c1810);
+            padding: 2rem;
+            border-radius: 12px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .navigation-container h2 {
+            margin-bottom: 1.5rem;
+            color: #FFD700;
+        }
+
+        .nav-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        #endpointSelect {
+            padding: 0.8rem 1.2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: white;
+            color: #333;
+            min-width: 200px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #endpointSelect:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.3);
+        }
+
+        .go-button {
+            padding: 0.8rem 2rem;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #2c1810;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .go-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .go-button:active {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            #sidebar {
+                width: 100%;
+                padding: 1rem;
+            }
+
+            .content {
+                padding: 1rem;
+            }
+
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .media-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-controls {
+                flex-direction: column;
+            }
+
+            #endpointSelect {
+                min-width: 100%;
+            }
+        }
+
+        /* Loading animation */
+        .loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <div id="sidebar">
-            <h2>We Love Wine!</h2>
+            <h2>🍷 We Love Wine!</h2>
             <hr>
+<<<<<<< HEAD
             <br>
             <h3>Where do you want to go?:</h3>
             <p><a id='current-link' href='https://ingoodtaste.com/blogs/wine-101/10-things-you-should-know-about-wine'>10 Things You Should Know About Wine</a></p>
             <p><a href='https://public.tableau.com/app/profile/viktor.kabelkov/viz/WineAnalysis_17149494454560/WineInfoDaashboard'>Tableau Dashboard</a></p>
             <!-- <p><a href='/endpoint2'>Make a Prediction</a></p> -->
             <p><a href='https://github.com/Zetaorionis/Capstone_Project.git'>Git Hub Repo</a></p>
+=======
+            <h3>Navigation:</h3>
+            <a id='current-link' href='/'>🏠 Home</a>
+            <a href='https://public.tableau.com/app/profile/viktor.kabelkov/viz/WineAnalysis_17149494454560/WineInfoDaashboard' target="_blank" rel="noopener">📊 Tableau Dashboard</a>
+            <a href='/endpoint2'>🔮 Make a Prediction</a>
+            <a href='https://github.com/Zetaorionis/Capstone_Project.git' target="_blank" rel="noopener">💻 GitHub Repo</a>
+>>>>>>> aed1f62 (Design improvement)
         </div>
+        
         <div class="content">
+            <div class="hero-section">
+                <h1>Wine Rating Analysis & Prediction</h1>
+                <p>Explore comprehensive wine data analysis through interactive visualizations and machine learning predictions. Discover patterns, trends, and insights in the world of wine ratings.</p>
+            </div>
+
             <div class="images-container">
+<<<<<<< HEAD
                 <div class="image-container">
                     <img src="static/img/wine.png" alt="Third Image" width="1200" height="150">
                     <img src="static/img/world_cloud.png" alt="Wine Word Cloud" width="600" height="470">
@@ -28,8 +295,33 @@
                         <source src="static/img/mixkit-leaning-glass-on-a-black-background-filled-with-red-wine-22736-medium.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
+=======
+                <!-- Main wine banner image placeholder -->
+                <div style="background: linear-gradient(45deg, #8B0000, #2c1810); height: 150px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; margin-bottom: 2rem;">
+                    🍷 Wine Analysis Dashboard 🍷
+>>>>>>> aed1f62 (Design improvement)
                 </div>
+
+                <div class="media-grid">
+                    <div class="media-item">
+                        <!-- Word cloud placeholder -->
+                        <div style="background: linear-gradient(135deg, #667eea, #764ba2); height: 300px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                            📊 Wine Word Cloud
+                        </div>
+                        <h3>Wine Description Analysis</h3>
+                    </div>
+                    
+                    <div class="media-item">
+                        <!-- Video placeholder -->
+                        <div style="background: linear-gradient(135deg, #2c1810, #8B0000); height: 300px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                            🎥 Wine Video
+                        </div>
+                        <h3>Wine Appreciation</h3>
+                    </div>
+                </div>
+
                 <div class="navigation-container">
+<<<<<<< HEAD
                     <h2>Where do you want to go?:</h2>
                     <select id="endpointSelect">
                         <option value="https://public.tableau.com/app/profile/viktor.kabelkov/viz/WineAnalysis_17149494454560/WineInfoDaashboard">Tableau Dashboard</option>
@@ -37,6 +329,20 @@
                         <option value="https://github.com/Zetaorionis/Capstone_Project.git">GitHub Repo</option>
                     </select>
                     <button onclick="redirectToEndpoint()">Go</button>
+=======
+                    <h2>🚀 Where would you like to explore?</h2>
+                    <div class="nav-controls">
+                        <select id="endpointSelect" aria-label="Select destination">
+                            <option value="">Choose your destination...</option>
+                            <option value="https://public.tableau.com/app/profile/viktor.kabelkov/viz/WineAnalysis_17149494454560/WineInfoDaashboard">📊 Tableau Dashboard</option>
+                            <option value="/endpoint2">🔮 Make a Prediction</option>
+                            <option value="https://github.com/Zetaorionis/Capstone_Project.git">💻 GitHub Repo</option>
+                        </select>
+                        <button class="go-button" onclick="redirectToEndpoint()" aria-label="Navigate to selected destination">
+                            Go!
+                        </button>
+                    </div>
+>>>>>>> aed1f62 (Design improvement)
                 </div>
             </div>
         </div>
@@ -44,10 +350,58 @@
 
     <script>
         function redirectToEndpoint() {
-            var selectElement = document.getElementById("endpointSelect");
-            var selectedValue = selectElement.value;
-            window.location.href =  selectedValue;
+            const selectElement = document.getElementById("endpointSelect");
+            const selectedValue = selectElement.value;
+            
+            if (!selectedValue) {
+                alert("Please select a destination first!");
+                return;
+            }
+
+            // Add loading state
+            const button = document.querySelector('.go-button');
+            const originalText = button.textContent;
+            button.textContent = 'Loading...';
+            button.disabled = true;
+            
+            // Determine if it's an external link
+            const isExternal = selectedValue.startsWith('http');
+            
+            try {
+                if (isExternal) {
+                    window.open(selectedValue, '_blank', 'noopener,noreferrer');
+                    // Reset button after opening external link
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.disabled = false;
+                    }, 1000);
+                } else {
+                    window.location.href = selectedValue;
+                }
+            } catch (error) {
+                console.error('Navigation error:', error);
+                alert('Sorry, there was an error navigating to that page.');
+                button.textContent = originalText;
+                button.disabled = false;
+            }
         }
+
+        // Add keyboard support for Enter key
+        document.getElementById('endpointSelect').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                redirectToEndpoint();
+            }
+        });
+
+        // Add smooth loading animation on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease-in-out';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
     </script>
 </body>
 </html>
